@@ -33,14 +33,14 @@ wheelhouse/
 ###############################################################################
 #  DJANGO
 ###############################################################################
-*.log                # logs d’exécution
-db.sqlite3           # BDD locale par défaut (si tu en utilises une)
+*.log  
+db.sqlite3
 db.sqlite3-journal
-staticfiles/         # dossier généré par `collectstatic`
-media/               # fichiers uploadés en DEV (à adapter si besoin)
-local_settings.py    # éventuels réglages locaux non suivis
-*.pot                # catalogues vides générés
-*.mo                 # catalogues compilés
+staticfiles/
+media/
+local_settings.py
+*.pot        
+*.mo
 
 ###############################################################################
 #  DOTENV / SECRETS
