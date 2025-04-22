@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Accueil du blog</title>
+{% endblock %}
+
+{% block content %}
+
+    <h1>Le site de Killianp</h1>
+    {% for post in posts %}
+    <article>
+        <h2>{{ post.title }}</h2>
+        <h5>Publié par <i>{{ post.author_or_default }}</i>  le {{ post.created_on|date:'j F Y' }}</h5>
+<!-- | adds a filter, date formats the date -->
+        <p>{{ post.content|safe|truncatewords:50 }}</p>
+<!-- safe treats the code as code, truncatewords displays the first 50 words -->
+    </article>
+    <form action="{% url 'blog:detail' slug=post.slug %}">
+        <button>Lire l'article</button>
+    </form>
+    {% if request.user.is_staff %}
+    <a href="{% url 'blog:edit' slug=post.slug %}">Éditer</a>
+    <a href="{% url 'blog:delete' slug=post.slug %}">Supprimer</a>
+    {% endif %}
+
+{% endfor %}
+
+
+{% endblock %}

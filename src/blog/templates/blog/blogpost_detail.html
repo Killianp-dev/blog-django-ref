@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>{{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+  <article>
+    <h1>{{ post.title }}</h1>
+<!-- Convert line breaks into <br> tags; safe for code interpretation -->
+    <div>{{ post.content|linebreaks|safe }}</div>
+  </article>
+{% endblock %}
