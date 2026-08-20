@@ -25,6 +25,6 @@ urlpatterns = [
     path('create/', staff_member_required(BlogCreate.as_view()), name="create"),
     path('edit/<str:slug>/', staff_member_required(BlogPostUpdate.as_view()), name="edit"),
     path('delete/<str:slug>/', staff_member_required(BlogPostDelete.as_view()), name="delete"),
-    path('<str:slug>/', staff_member_required(BlogPostDetail.as_view()), name="detail"),
+    path('<str:slug>/', BlogPostDetail.as_view(), name="detail"),
 ]
 
