@@ -53,11 +53,11 @@ pip install -r requirements.txt
 Configure your database settings in `.env`:
 
 ```env
-DATABASE_NAME=your_db_name
-DATABASE_USER=your_db_user
-DATABASE_PASSWORD=your_db_password
-DATABASE_HOST=localhost
-DATABASE_PORT=5432
+DB_NAME=your_db_name
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_HOST=localhost
+DB_PORT=5432
 SECRET_KEY=your_secret_key
 ```
 
@@ -81,6 +81,15 @@ python manage.py runserver
 ```
 
 Your blog backend is now accessible at `http://localhost:8000/`.
+
+## Tests
+
+Tests run against an in-memory SQLite database (`python manage.py test`):
+
+```bash
+cd src
+python manage.py test blog
+```
 
 ## Contributing
 
