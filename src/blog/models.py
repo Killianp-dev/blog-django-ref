@@ -32,6 +32,6 @@ class BlogPost(models.Model):
         return self.author.username if self.author else "auteur inconnu"
 
     def get_absolute_url(self):
-        return reverse('blog:home')
+        return reverse("blog:detail", kwargs={"slug": self.slug})
 
 

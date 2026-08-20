@@ -25,6 +25,13 @@ class BlogPostModelTests(TestCase):
         post = BlogPost.objects.create(title="Avec auteur", author=author)
         self.assertEqual(post.author_or_default, "killian")
 
+    def test_get_absolute_url_points_to_detail(self):
+        post = BlogPost.objects.create(title="Fiche article")
+        self.assertEqual(
+            post.get_absolute_url(),
+            reverse("blog:detail", kwargs={"slug": post.slug}),
+        )
+
 
 class BlogViewTests(TestCase):
     def setUp(self):
